@@ -17,6 +17,9 @@ echo -e 'for d in $(find "$A" -not -iwholename "*/.git*" -not -iwholename "$A" -
 echo -e 'do\n  # check if in path\n  [[ ":$PATH:" != *":$d:"* ]] && PATH="$d:${PATH}"\ndone\n' >> "$START"
 chmod 755 "$START"
 
-echo "now source $START"
+mkdir -p "$A/local"
+
+echo "now"
+echo "source $START"
 
 exit 0
