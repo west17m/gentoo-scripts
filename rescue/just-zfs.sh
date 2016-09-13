@@ -30,8 +30,6 @@ do
   # parted -a optimal "$DEVICE" --script -- unit MiB mkpart primary 1 -1
   # parted -a optimal "$DEVICE" --script -- align-check optimal 1
   # parted -a optimal "$DEVICE" --script -- unit MiB print
-  sgdisk --new=2:48:2047 --typecode=2:EF02 --change-name=2:"BIOS boot partition" "$DEVICE"
-  partprobe "$DEVICE"
 done
 
 set -e on
@@ -51,3 +49,13 @@ zpool create -f \
   "$ZPOOL_NAME" \
   mirror /dev/sd?
 
+for DEVICE in /dev/sd?
+do
+  sgdisk --new=2:48:2047 --typecode=2:EF02 --change-name=2:"BIOS boot partition" "$DEVICE"
+  sleep 1s
+  partprobe "$DEVICE"
+done
+
+parted -l
+zpool status
+zfs list
