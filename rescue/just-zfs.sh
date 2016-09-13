@@ -13,11 +13,6 @@ mdadm --stop /dev/md*
 
 set -e on
 
-wget http://archive.zfsonlinux.org/debian/pool/main/z/zfsonlinux/zfsonlinux_6_all.deb
-dpkg -i zfsonlinux_6_all.deb
-apt-get update
-apt-get -y install lsb-release
-apt-get -y install debian-zfs lshw
 modprobe zfs
 
 set -e off
