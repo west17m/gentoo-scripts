@@ -4,9 +4,6 @@ scripts that are too helpful not to have your system
 bash /usr/local/gentoo-scripts/core/add-path.sh
 
 # Rescue Mode
-wget https://github.com/west17m/gentoo-scripts/archive/master.zip -O scripts.zip
-unzip scripts.zip
-source gentoo-scripts-master/rescue/sourceme.sh
-gentoo-scripts-master/rescue/screen-setup.sh
-screen.sh
+wget https://gist.githubusercontent.com/west17m/ec661994b26797120cdd79e5e01c7d54/raw/36c55b0a51634b9510dd2c2808cc5f2b4d0b7678/env-setup.sh
+bash env-setup.sh
 
